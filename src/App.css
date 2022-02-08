@@ -1,16 +1,14 @@
 .App {
   text-align: center;
-  
+  padding: 2rem;
 }
 
 .title {
- padding: 1rem;
- }
+  font-size: 2em;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
 
- input {
-   background: border-box;
-  border-top: none;
-  width: 200px;
-  padding:5px;
-
- }
+input {
+  border: none;
+}

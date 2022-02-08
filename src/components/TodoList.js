@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const TodoList = (props) => {
   console.log(props.state);
   return (
-    <ul>
+    <ul className={classes.listContainer}>
       {props.state.map((todo) => {
         return (
           <div
@@ -25,7 +25,7 @@ const TodoList = (props) => {
               }
             ></div>
             <button onClick={props.delete} className={classes.button}>
-              Delete
+              -
             </button>
           </div>
         );
