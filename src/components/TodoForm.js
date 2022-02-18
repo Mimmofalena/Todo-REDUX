@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import classes from "./TodoItem.module.css";
 import TodoList from "./TodoList";
-import { addTodo, toggleTodo, deleteTodo } from "../redux/actions/index";
-import store from "../redux/store";
 import { v4 as uuidv4 } from "uuid";
-import { connect } from "react-redux";
+
+import { useDispatch } from "react-redux";
+import { addTodo, deleteTodo, toggleTodo } from "../redux/slices/todoSlice";
 
 const TodoForm = (props) => {
-  console.log("TODO FORM PROPS", props);
+  const dispatch = useDispatch();
 
   const [todo, setTodo] = useState("");
 
-  console.log("REDUX STORE", store.getState());
-
   const toggleTodoHandler = (e) => {
-    console.log("inside toggle handler form", e.currentTarget.id);
-
-    store.dispatch(toggleTodo(e.currentTarget.id));
+    dispatch(toggleTodo({ id: e.currentTarget.id }));
   };
 
   const todoHandler = (e) => {
@@ -24,14 +20,15 @@ const TodoForm = (props) => {
   };
 
   const deleteHandler = (e) => {
-    store.dispatch(deleteTodo(e.currentTarget.parentElement.id));
+    e.stopPropagation();
     console.log(e.currentTarget.parentElement.id);
+    dispatch(deleteTodo(e.currentTarget.parentElement.id));
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    store.dispatch(addTodo(todo, uuidv4(), true));
+    dispatch(addTodo({ id: uuidv4(), text: todo, isCompleted: false }));
 
     setTodo("");
   };
@@ -51,19 +48,9 @@ const TodoForm = (props) => {
         </button>
       </form>
 
-      <TodoList
-        onClick={toggleTodoHandler}
-        delete={deleteHandler}
-        todos={props.state}
-      />
+      <TodoList onClick={toggleTodoHandler} delete={deleteHandler} />
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state: state,
-  };
-};
-
-export default connect(mapStateToProps)(TodoForm);
+export default TodoForm;

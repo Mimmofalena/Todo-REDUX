@@ -12,3 +12,22 @@
 input {
   border: none;
 }
+
+.float-container {
+  background-color: blueviolet;
+  height: 200px;
+}
+
+.div1 {
+  height: 100px;
+  width: 100px;
+  /* float: right; */
+  background-color: aqua;
+}
+
+.div2 {
+  /* float: left; */
+  height: 100px;
+  width: 100px;
+  background-color: black;
+}
