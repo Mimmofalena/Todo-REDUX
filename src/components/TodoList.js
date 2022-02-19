@@ -8,6 +8,15 @@ const TodoList = (props) => {
     setSelectedOption(e.target.value);
   };
 
+  const numTodos = useSelector((state) => state.todo.todos);
+  const completedTodos = useSelector((state) =>
+    state.todo.todos.filter((todo) => todo.isCompleted === true)
+  );
+  const pendingTodos = useSelector((state) =>
+    state.todo.todos.filter((todo) => todo.isCompleted === false)
+  );
+  console.log(completedTodos);
+
   const todos = useSelector((state) => {
     if (selectedOption === "Descending") {
       return state.todo.todos
@@ -40,12 +49,14 @@ const TodoList = (props) => {
 
   return (
     <>
-      <select onChange={selectHandler}>
-        <option value="">Filter</option>
-        <option value="Ascending">Ascending</option>
-        <option value="Descending">Descending</option>
-        <option value="Completed">Completed</option>
-      </select>
+      <div className={classes.selectContainer}>
+        <select className={classes.select} onChange={selectHandler}>
+          <option value="">Filter</option>
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
 
       <ul className={classes.listContainer}>
         {todos.map((todo) => {
@@ -73,6 +84,18 @@ const TodoList = (props) => {
           );
         })}
       </ul>
+      <div className={classes.summaryTodos}>
+        <p>
+          Todal Todos: <strong>{numTodos.length}</strong>
+        </p>
+        <p>
+          Pending Todos: <strong>{pendingTodos.length}</strong>
+        </p>
+
+        <p>
+          Completed Todos: <strong>{completedTodos.length}</strong>
+        </p>
+      </div>
     </>
   );
 };

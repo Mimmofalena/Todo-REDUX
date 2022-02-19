@@ -63,3 +63,23 @@
 .opacity {
   opacity: 0.5;
 }
+
+.selectContainer {
+  /* border: none; */
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 1rem;
+}
+
+.select {
+  padding: 0.5rem;
+}
+
+.summaryTodos {
+  text-align: start;
+  display: flex;
+  /* align-items: flex-start; */
+  flex-direction: column;
+  width: 100%;
+}
