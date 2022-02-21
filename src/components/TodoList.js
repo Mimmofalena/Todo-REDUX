@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../components/TodoItem.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAsyncTodos } from "../redux/slices/todoSlice";
 
 const TodoList = (props) => {
+  const state = useSelector((state) => state);
+  console.log("state before", state);
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getAsyncTodos());
+  //   // console.log("state inside use effect", state);
+  //   // const data = fetch("https://jsonplaceholder.typicode.com/todos").then(
+  //   //   (res) => res.json()
+  //   // );
+  //   // console.log(data.slice(0, 10));
+  // }, [dispatch]);
+
   const [selectedOption, setSelectedOption] = useState("");
   const selectHandler = (e) => {
     setSelectedOption(e.target.value);
@@ -15,7 +28,6 @@ const TodoList = (props) => {
   const pendingTodos = useSelector((state) =>
     state.todo.todos.filter((todo) => todo.isCompleted === false)
   );
-  console.log(completedTodos);
 
   const todos = useSelector((state) => {
     if (selectedOption === "Descending") {

@@ -1,9 +1,30 @@
 import { configureStore } from "@reduxjs/toolkit";
 import todoReducer from "./slices/todoSlice";
+// localStorage.setItem("todos", ["vudu"]);
+// localStorage.setItem("todos", JSON.stringify(["vudu", "babau"]));
 
+const persistedState = localStorage.getItem("todos")
+  ? JSON.parse(localStorage.getItem("todos"))
+  : [];
+
+console.log(persistedState);
+// console.log(persistedState);
+// const loadFromLocalStorage = () => {
+//   try {
+//     const serializedState = localStorage.getItem("todos");
+//     return JSON.parse(serializedState);
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// };
 const store = configureStore({
   reducer: {
     todo: todoReducer,
+  },
+  preloadedState: {
+    todo: {
+      todos: persistedState,
+    },
   },
 });
 
