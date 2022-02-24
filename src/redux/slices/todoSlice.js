@@ -41,15 +41,16 @@ export const todoSlice = createSlice({
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     deleteTodo: (state, action) => {
+      console.log(action);
       const filteredTodo = state.todos.filter(
         (todo) => todo.id !== action.payload
       );
-      console.log(current(state));
 
       state.todos = filteredTodo;
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     toggleTodo: (state, action) => {
+      console.log(action);
       const todo = state.todos.find((todo) => todo.id === action.payload.id);
       if (todo) {
         todo.isCompleted = !todo.isCompleted;

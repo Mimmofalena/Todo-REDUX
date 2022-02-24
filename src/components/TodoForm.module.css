@@ -1,0 +1,96 @@
+.upperContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+
+  padding: 2rem;
+  background-color: rgba(165, 156, 156, 0.5);
+  margin-bottom: 1rem;
+}
+
+.form {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+  /* width: 600px; */
+}
+
+.input {
+  background-color: white;
+  padding: 0.5rem 1rem;
+  width: 100%;
+
+  /* margin-right: 0.5rem; */
+}
+.button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  background-color: grey;
+  opacity: 0.8;
+}
+.alertBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  width: 60%;
+  height: 10%;
+  z-index: 50;
+}
+.buttonsContainer {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsContainer > button {
+  margin: 0 1rem;
+  width: 100px;
+  height: 40px;
+}
+
+.buttonDelete {
+  background-color: red;
+}
+.buttonDelete:hover,
+.buttonReturn:hover {
+  opacity: 0.5;
+}
+
+.buttonReturn {
+  background-color: green;
+}
+
+@media screen and (min-width: 768px) {
+  .upperContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}

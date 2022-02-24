@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import classes from "../components/TodoItem.module.css";
+import React, { useEffect, useRef, useState, forwardRef } from "react";
+import classes from "./TodoList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getAsyncTodos } from "../redux/slices/todoSlice";
 
 const TodoList = (props) => {
-  const state = useSelector((state) => state);
-  console.log("state before", state);
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(getAsyncTodos());
@@ -20,14 +18,6 @@ const TodoList = (props) => {
   const selectHandler = (e) => {
     setSelectedOption(e.target.value);
   };
-
-  const numTodos = useSelector((state) => state.todo.todos);
-  const completedTodos = useSelector((state) =>
-    state.todo.todos.filter((todo) => todo.isCompleted === true)
-  );
-  const pendingTodos = useSelector((state) =>
-    state.todo.todos.filter((todo) => todo.isCompleted === false)
-  );
 
   const todos = useSelector((state) => {
     if (selectedOption === "Descending") {
@@ -60,7 +50,7 @@ const TodoList = (props) => {
   });
 
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.selectContainer}>
         <select className={classes.select} onChange={selectHandler}>
           <option value="">Filter</option>
@@ -89,26 +79,14 @@ const TodoList = (props) => {
                   todo.isCompleted ? [classes.completed].join(" , ") : ""
                 }
               ></div>
-              <button onClick={props.delete} className={classes.button}>
+              <button onClick={props.alert} className={classes.button}>
                 -
               </button>
             </div>
           );
         })}
       </ul>
-      <div className={classes.summaryTodos}>
-        <p>
-          Todal Todos: <strong>{numTodos.length}</strong>
-        </p>
-        <p>
-          Pending Todos: <strong>{pendingTodos.length}</strong>
-        </p>
-
-        <p>
-          Completed Todos: <strong>{completedTodos.length}</strong>
-        </p>
-      </div>
-    </>
+    </div>
   );
 };
 
