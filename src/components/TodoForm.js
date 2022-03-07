@@ -1,30 +1,18 @@
-import React, { useEffect, useState, useRef, createRef } from "react";
+import React, { useState } from "react";
 import classes from "./TodoForm.module.css";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from "uuid";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTodo, deleteTodo, toggleTodo } from "../redux/slices/todoSlice";
 import TodoStatus from "./TodoStatus";
 
 const TodoForm = (props) => {
-  const todos = useSelector((state) => state.todo.todos);
-  console.log(todos);
-  // const ref = useRef(todos.map(() => createRef()));
-
-  // console.log(ref);
-  // useEffect(() => {
-  //   console.log(ref);
-  // });
-  // console.log(ref.current.parentElement.id);
   const dispatch = useDispatch();
 
   const [todo, setTodo] = useState("");
 
   const [selectedItem, setSelectedItem] = useState();
-
-  console.log(selectedItem);
-  // console.log(selectedItem.parentElement.id);
 
   const [showAlert, setShowAlert] = useState(false);
 
@@ -37,12 +25,10 @@ const TodoForm = (props) => {
   const returnHandler = () => {
     setSelectedItem(null);
     setShowAlert(false);
-    // setSelectedItem(null);
   };
 
   const toggleTodoHandler = (e) => {
-    dispatch(toggleTodo({ id: e.currentTarget.id }));
-    // setSelectedItem(null);
+    dispatch(toggleTodo({ id: e.currentTarget.parentElement.id }));
   };
 
   const todoHandler = (e) => {
@@ -80,12 +66,9 @@ const TodoForm = (props) => {
         </form>
 
         <TodoList
-          // ref={ref}
           onClick={toggleTodoHandler}
-          // delete={deleteHandler}
           alert={showAlertHandler}
           alertStatus={showAlert}
-          // return={returnHandler}
         />
       </div>
       <TodoStatus />

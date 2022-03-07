@@ -1,19 +1,11 @@
-import React, { useEffect, useRef, useState, forwardRef } from "react";
+import React, { useState } from "react";
 import classes from "./TodoList.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { getAsyncTodos } from "../redux/slices/todoSlice";
+import { useSelector } from "react-redux";
+
+import { TiTickOutline } from "react-icons/ti";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const TodoList = (props) => {
-  const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getAsyncTodos());
-  //   // console.log("state inside use effect", state);
-  //   // const data = fetch("https://jsonplaceholder.typicode.com/todos").then(
-  //   //   (res) => res.json()
-  //   // );
-  //   // console.log(data.slice(0, 10));
-  // }, [dispatch]);
-
   const [selectedOption, setSelectedOption] = useState("");
   const selectHandler = (e) => {
     setSelectedOption(e.target.value);
@@ -65,7 +57,7 @@ const TodoList = (props) => {
           return (
             <div
               id={todo.id}
-              onClick={props.onClick}
+              // onClick={props.onClick}
               key={todo.id}
               className={
                 todo.isCompleted
@@ -74,14 +66,25 @@ const TodoList = (props) => {
               }
             >
               <li>{todo.text}</li>
-              <div
+              {/* <div
                 className={
                   todo.isCompleted ? [classes.completed].join(" , ") : ""
                 }
-              ></div>
-              <button onClick={props.alert} className={classes.button}>
+              ></div> */}
+
+              <TiTickOutline
+                onClick={props.onClick}
+                className={[classes.button, classes.button_completed].join(
+                  " , "
+                )}
+              />
+              <BsFillTrashFill
+                onClick={props.alert}
+                className={[classes.button, classes.button_delete].join(" , ")}
+              />
+              {/* <button onClick={props.alert} className={classes.button}>
                 -
-              </button>
+              </button> */}
             </div>
           );
         })}

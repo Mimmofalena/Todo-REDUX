@@ -48,7 +48,7 @@
   /* border: none; */
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 1rem;
 }
 
@@ -68,6 +68,13 @@
   padding: 0.5rem 1rem;
   margin-left: 1rem;
 }
+.button_completed {
+  background-color: green;
+}
+
+.button_delete {
+  background-color: red;
+}
 
 .alert {
   position: absolute;
@@ -83,4 +90,11 @@
 
   background-color: grey;
   opacity: 0.5;
+}
+
+.icon {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  /* color: green; */
+  background-color: rgb(84, 233, 84);
 }
