@@ -57,7 +57,6 @@ const TodoList = (props) => {
           return (
             <div
               id={todo.id}
-              // onClick={props.onClick}
               key={todo.id}
               className={
                 todo.isCompleted
@@ -65,12 +64,9 @@ const TodoList = (props) => {
                   : classes.listItem
               }
             >
-              <li>{todo.text}</li>
-              {/* <div
-                className={
-                  todo.isCompleted ? [classes.completed].join(" , ") : ""
-                }
-              ></div> */}
+              <li className={todo.isCompleted ? [classes.text_crossed] : ""}>
+                {todo.text}
+              </li>
 
               <TiTickOutline
                 onClick={props.onClick}
@@ -82,9 +78,6 @@ const TodoList = (props) => {
                 onClick={props.alert}
                 className={[classes.button, classes.button_delete].join(" , ")}
               />
-              {/* <button onClick={props.alert} className={classes.button}>
-                -
-              </button> */}
             </div>
           );
         })}

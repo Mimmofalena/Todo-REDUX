@@ -29,6 +29,7 @@
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  border: none;
 }
 
 .completed {
@@ -66,7 +67,8 @@
 
 .button {
   padding: 0.5rem 1rem;
-  margin-left: 1rem;
+  font-size: 24px;
+  /* margin-left: 0.5rem; */
 }
 .button_completed {
   background-color: green;
@@ -92,9 +94,6 @@
   opacity: 0.5;
 }
 
-.icon {
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
-  /* color: green; */
-  background-color: rgb(84, 233, 84);
+.text_crossed {
+  text-decoration: line-through;
 }
