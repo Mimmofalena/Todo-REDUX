@@ -30,6 +30,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   border: none;
+  background-color: var(--quad-bg);
+  border: 1px solid #dddddd;
+  margin-right: 0.5rem;
+  border-radius: 4px;
 }
 
 .completed {
@@ -46,7 +50,6 @@
 }
 
 .selectContainer {
-  /* border: none; */
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -54,28 +57,48 @@
 }
 
 .select {
+  cursor: pointer;
   padding: 0.5rem;
+  background-color: var(--primary-text);
+  color: var(--primary-bg);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.select:hover {
+  background-color: #3d3d3d;
 }
 
 .summaryTodos {
   padding: 0 1rem;
   text-align: start;
   display: flex;
-  /* align-items: flex-start; */
   flex-direction: column;
 }
 
 .button {
   padding: 0.5rem 1rem;
   font-size: 24px;
-  /* margin-left: 0.5rem; */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
+.button:hover {
+  cursor: pointer;
+}
+
 .button_completed {
-  background-color: green;
+  background-color: var(--button-complete);
+  margin-right: 0.2rem;
+}
+.button_completed:hover {
+  background-color: #43a047; /* Colore di hover per il verde */
 }
 
 .button_delete {
-  background-color: red;
+  background-color: var(--button-delete);
+}
+
+.button_delete:hover {
+  background-color: #d32f2f;
 }
 
 .alert {
@@ -90,7 +113,7 @@
   height: 100%;
   width: 100%;
 
-  background-color: grey;
+  background-color: var(--primary-text);
   opacity: 0.5;
 }
 
