@@ -8,6 +8,7 @@
   height: fit-content;
   margin-left: 1rem;
   align-self: center;
+  color: var(--secondary-text);
 }
 p {
   padding: 0.5rem;

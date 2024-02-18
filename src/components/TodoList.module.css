@@ -41,7 +41,6 @@
   left: 0;
   top: 50%;
   height: 1px;
-  background: #c00;
   width: 100%;
 }
 
@@ -59,13 +58,13 @@
 .select {
   cursor: pointer;
   padding: 0.5rem;
-  background-color: var(--primary-text);
-  color: var(--primary-bg);
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 .select:hover {
-  background-color: #3d3d3d;
+  background-color: #e2e2e2;
 }
 
 .summaryTodos {
@@ -90,7 +89,7 @@
   margin-right: 0.2rem;
 }
 .button_completed:hover {
-  background-color: #43a047; /* Colore di hover per il verde */
+  background-color: #49b6d6; /* Colore di hover per il verde */
 }
 
 .button_delete {
@@ -98,7 +97,7 @@
 }
 
 .button_delete:hover {
-  background-color: #d32f2f;
+  background-color: #d43f3a;
 }
 
 .alert {

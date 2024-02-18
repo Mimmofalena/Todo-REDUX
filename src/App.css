@@ -2,9 +2,10 @@
   min-height: 100vh;
   height: 100%;
   width: 100vw;
-  background-image: url("../src/assets/background-picture.jpeg");
+  background-color: var(--primary-bg);
+  /* background-image: url("../src/assets/background-picture.jpeg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 
   /* text-align: center;
   padding: 2rem; */
@@ -15,28 +16,9 @@
   padding: 1rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: white;
+  color: var(--primary-text);
 }
 
 input {
   border: none;
-}
-
-.float-container {
-  background-color: blueviolet;
-  height: 200px;
-}
-
-.div1 {
-  height: 100px;
-  width: 100px;
-  /* float: right; */
-  background-color: aqua;
-}
-
-.div2 {
-  /* float: left; */
-  height: 100px;
-  width: 100px;
-  background-color: black;
 }

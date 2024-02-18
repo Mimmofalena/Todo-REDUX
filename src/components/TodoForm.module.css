@@ -13,7 +13,8 @@
   width: 70%;
 
   padding: 2rem;
-  background-color: var(--primary-bg);
+  background-color: #ffffff;
+  color: var(--secondary-text);
   margin-bottom: 1rem;
 }
 
@@ -26,16 +27,17 @@
 }
 
 .form input {
-  background-color: var(--primary-text);
-  color: var(--primary-bg);
+  background-color: #efefef;
+  color: #495057;
+  /* background-color: var(--primary-text); */
+  /* color: var(--primary-bg); */
 }
 
 .form ::placeholder {
-  color: var(--primary-bg);
+  color: #495057;
 }
 
 .input {
-  background-color: var(--primary-bg);
   border-radius: 4px;
   padding: 0.5rem 1rem;
   width: 100%;
@@ -44,11 +46,11 @@
   padding: 0.5rem 1rem;
   margin-left: 1rem;
   background-color: var(--tertiary-bg);
-  color: var(--primary-bg);
+  color: var(--primary-text);
   transition: background-color 0.3s ease;
 }
 .button:hover {
-  background-color: #e64a19;
+  background-color: #4cae4c;
 }
 
 .alert {
@@ -95,7 +97,7 @@
 }
 
 .buttonDelete {
-  background-color: #ff4136;
+  background-color: #d9534f;
 }
 
 .buttonReturn {
@@ -103,7 +105,7 @@
 }
 
 .buttonDelete:hover {
-  background-color: #e0362d;
+  background-color: #d43f3a;
 }
 .buttonReturn:hover {
   background-color: #cccccc;
