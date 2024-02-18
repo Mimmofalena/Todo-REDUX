@@ -56,34 +56,30 @@ const TodoList = (props) => {
         {!todos.length && <p>no items completed</p>}
         {todos.map((todo) => {
           return (
-            <>
-              <div
-                id={todo.id}
-                key={todo.id}
-                className={
-                  todo.isCompleted
-                    ? [classes.listItem, classes.opacity].join(" , ")
-                    : classes.listItem
-                }
-              >
-                <li className={todo.isCompleted ? [classes.text_crossed] : ""}>
-                  {todo.text}
-                </li>
+            <div
+              id={todo.id}
+              key={todo.id}
+              className={
+                todo.isCompleted
+                  ? [classes.listItem, classes.opacity].join(" , ")
+                  : classes.listItem
+              }
+            >
+              <li className={todo.isCompleted ? [classes.text_crossed] : ""}>
+                {todo.text}
+              </li>
 
-                <TiTickOutline
-                  onClick={props.onClick}
-                  className={[classes.button, classes.button_completed].join(
-                    " , "
-                  )}
-                />
-                <BsFillTrashFill
-                  onClick={props.alert}
-                  className={[classes.button, classes.button_delete].join(
-                    " , "
-                  )}
-                />
-              </div>
-            </>
+              <TiTickOutline
+                onClick={props.onClick}
+                className={[classes.button, classes.button_completed].join(
+                  " , "
+                )}
+              />
+              <BsFillTrashFill
+                onClick={props.alert}
+                className={[classes.button, classes.button_delete].join(" , ")}
+              />
+            </div>
           );
         })}
       </ul>
