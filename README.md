@@ -18,10 +18,3 @@ The app is built using the following technologies:
 The primary purpose of creating this application was to practice and improve my skills with React and Redux. It serves as a practical project to apply the concepts learned and to understand the workflow of using Redux in React applications.
 
 Enjoy managing your tasks!
-
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
