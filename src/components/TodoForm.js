@@ -60,7 +60,10 @@ const TodoForm = (props) => {
             placeholder="todo..."
           ></input>
 
-          <button disabled={!todo} className={classes.button}>
+          <button
+            disabled={!todo}
+            className={!todo ? classes.buttonDisabled : classes.button}
+          >
             +
           </button>
         </form>

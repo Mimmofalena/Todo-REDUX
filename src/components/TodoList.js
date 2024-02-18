@@ -53,7 +53,7 @@ const TodoList = (props) => {
       </div>
 
       <ul className={classes.listContainer}>
-        {!todos.length && <p>no items completed</p>}
+        {!todos.length && <p>no items found</p>}
         {todos.map((todo) => {
           return (
             <div

@@ -47,6 +47,7 @@
   margin-left: 1rem;
   background-color: var(--tertiary-bg);
   color: var(--primary-text);
+  border: 1px solid var(--tertiary-bg);
   transition: background-color 0.3s ease;
 }
 .button:hover {
@@ -94,6 +95,16 @@
   color: #000000;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+}
+.buttonDisabled {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background-color: #b2d3b5;
+  color: #9da5a8;
+  border: 1px solid #b2d3b5;
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: default;
 }
 
 .buttonDelete {
