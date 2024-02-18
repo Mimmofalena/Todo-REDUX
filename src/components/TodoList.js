@@ -6,7 +6,7 @@ import { TiTickOutline } from "react-icons/ti";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const TodoList = (props) => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Ascending");
   const selectHandler = (e) => {
     setSelectedOption(e.target.value);
   };
@@ -45,7 +45,7 @@ const TodoList = (props) => {
     <div className={classes.container}>
       <div className={classes.selectContainer}>
         <select className={classes.select} onChange={selectHandler}>
-          <option value="">Filter</option>
+          {/* <option value="">Filter</option> */}
           <option value="Ascending">Ascending</option>
           <option value="Descending">Descending</option>
           <option value="Completed">Completed</option>
