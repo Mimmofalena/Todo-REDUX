@@ -44,16 +44,20 @@ const TodoList = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.selectContainer}>
-        <select className={classes.select} onChange={selectHandler}>
-          {/* <option value="">Filter</option> */}
-          <option value="Ascending">Ascending</option>
-          <option value="Descending">Descending</option>
-          <option value="Completed">Completed</option>
+        <select 
+          id="sort-filter"
+          className={classes.select} 
+          onChange={selectHandler}
+          aria-label="Sort and filter todos"
+        >
+          <option value="Ascending">A-Z (Ascending)</option>
+          <option value="Descending">Z-A (Descending)</option>
+          <option value="Completed">Completed Only</option>
         </select>
       </div>
 
-      <ul className={classes.listContainer}>
-        {!todos.length && <p>no items found</p>}
+      <ul className={classes.listContainer} aria-label="Todo items list">
+        {!todos.length && <p>No items found. Add your first todo!</p>}
         {todos.map((todo) => {
           return (
             <div
@@ -61,23 +65,30 @@ const TodoList = (props) => {
               key={todo.id}
               className={
                 todo.isCompleted
-                  ? [classes.listItem, classes.opacity].join(" , ")
+                  ? `${classes.listItem} ${classes.opacity}`
                   : classes.listItem
               }
+              role="listitem"
             >
-              <li className={todo.isCompleted ? [classes.text_crossed] : ""}>
+              <li className={todo.isCompleted ? classes.text_crossed : ""}>
                 {todo.text}
               </li>
 
               <TiTickOutline
                 onClick={props.onClick}
-                className={[classes.button, classes.button_completed].join(
-                  " , "
-                )}
+                className={`${classes.button} ${classes.button_completed}`}
+                role="button"
+                tabIndex={0}
+                aria-label={todo.isCompleted ? "Mark as incomplete" : "Mark as complete"}
+                onKeyDown={(e) => e.key === 'Enter' && props.onClick(e)}
               />
               <BsFillTrashFill
                 onClick={props.alert}
-                className={[classes.button, classes.button_delete].join(" , ")}
+                className={`${classes.button} ${classes.button_delete}`}
+                role="button"
+                tabIndex={0}
+                aria-label="Delete todo"
+                onKeyDown={(e) => e.key === 'Enter' && props.alert(e)}
               />
             </div>
           );

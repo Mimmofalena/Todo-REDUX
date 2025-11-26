@@ -4,7 +4,9 @@ import TodoForm from "./components/TodoForm";
 function App() {
   return (
     <div className="App">
-      <h1 className="title">To do app with Redux</h1>
+      <header>
+        <h1 className="title">✨ Todo App</h1>
+      </header>
       <TodoForm />
     </div>
   );

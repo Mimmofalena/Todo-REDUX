@@ -2,21 +2,33 @@
   min-height: 100vh;
   height: 100%;
   width: 100vw;
-  background-color: var(--primary-bg);
-  /* background-image: url("../src/assets/background-picture.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover; */
-
-  /* text-align: center;
-  padding: 2rem; */
+  background: var(--primary-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
 }
 
 .title {
-  font-size: 2em;
+  font-size: 2.5rem;
+  font-weight: 700;
   padding: 1rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: var(--primary-text);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .App {
+    padding: 1rem 0.75rem;
+  }
 }
 
 input {

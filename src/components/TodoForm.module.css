@@ -2,129 +2,248 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   align-items: center;
+  width: 100%;
+  max-width: 900px;
+  gap: 1.5rem;
 }
+
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 70%;
-
+  width: 100%;
   padding: 2rem;
-  background-color: #ffffff;
-  color: var(--secondary-text);
-  margin-bottom: 1rem;
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  min-height: 400px;
 }
 
 .form {
-  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
 .form input {
-  background-color: #efefef;
-  color: #495057;
-  /* background-color: var(--primary-text); */
-  /* color: var(--primary-bg); */
+  background-color: var(--input-bg);
+  color: var(--primary-text);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+
+.form input:hover {
+  border-color: var(--accent-color);
+}
+
+.form input:focus {
+  border-color: var(--accent-color);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .form ::placeholder {
-  color: #495057;
+  color: var(--muted-text);
 }
 
 .input {
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  width: 100%;
-}
-.button {
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
-  background-color: var(--tertiary-bg);
-  color: var(--primary-text);
-  border: 1px solid var(--tertiary-bg);
-  transition: background-color 0.3s ease;
-}
-.button:hover {
-  background-color: #4cae4c;
+  flex: 1;
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  min-width: 0;
 }
 
+.button {
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 52px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, var(--success-hover) 0%, #047857 100%);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.buttonDisabled {
+  padding: 0.875rem 1.5rem;
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: not-allowed;
+  min-width: 56px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Alert Modal */
 .alert {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
-
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .alertBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-bg);
-  padding: 1rem;
-  width: 60%;
-  z-index: 50;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
   color: var(--primary-text);
-  border-radius: 4px;
+  text-align: center;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alertBox p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-text);
 }
 
 .buttonsContainer {
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 .buttonsContainer > button {
-  margin: 0 1rem;
-  width: 100px;
-  height: 40px;
-  border: 1px solid #dddddd;
-  color: #000000;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-.buttonDisabled {
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
-  background-color: #b2d3b5;
-  color: #9da5a8;
-  border: 1px solid #b2d3b5;
-  opacity: 0.6;
-  pointer-events: none;
-  cursor: default;
+  flex: 1;
+  max-width: 140px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
 }
 
 .buttonDelete {
-  background-color: #d9534f;
-}
-
-.buttonReturn {
-  background-color: #bbbbbb;
+  background: linear-gradient(135deg, var(--danger-color) 0%, #dc2626 100%);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
 }
 
 .buttonDelete:hover {
-  background-color: #d43f3a;
-}
-.buttonReturn:hover {
-  background-color: #cccccc;
+  background: linear-gradient(135deg, var(--danger-hover) 0%, #b91c1c 100%);
+  box-shadow: var(--shadow-lg);
 }
 
+.buttonReturn {
+  background-color: var(--input-bg);
+  color: var(--secondary-text);
+  border: 2px solid var(--border-color);
+}
+
+.buttonReturn:hover {
+  background-color: var(--input-hover);
+  border-color: var(--border-hover);
+}
+
+/* Responsive Design */
 @media screen and (min-width: 768px) {
   .upperContainer {
-    display: flex;
     flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .container {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+  
+  .form {
+    flex-direction: column;
+  }
+  
+  .input {
+    width: 100%;
+  }
+  
+  .button,
+  .buttonDisabled {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .alertBox {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .buttonsContainer {
+    flex-direction: column;
+  }
+  
+  .buttonsContainer > button {
+    max-width: none;
   }
 }
