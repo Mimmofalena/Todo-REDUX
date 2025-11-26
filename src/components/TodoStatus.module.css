@@ -1,21 +1,78 @@
 .summaryTodos {
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   display: flex;
-  /* align-items: flex-start; */
   flex-direction: column;
-  background-color: var(--secondary-bg);
-  height: fit-content;
-  margin-left: 1rem;
-  align-self: center;
-  color: var(--secondary-text);
-}
-p {
-  padding: 0.5rem;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
 }
 
+.summaryTodos p {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--secondary-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.summaryTodos p:hover {
+  background-color: var(--input-bg);
+}
+
+.summaryTodos p strong {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--primary-text);
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Add icons/indicators with pseudo elements */
+.summaryTodos p:first-of-type strong {
+  color: var(--accent-color);
+}
+
+.summaryTodos p:nth-of-type(2) strong {
+  color: var(--warning-color);
+}
+
+.summaryTodos p:last-of-type strong {
+  color: var(--success-color);
+}
+
+/* Responsive adjustments */
 @media screen and (min-width: 768px) {
   .summaryTodos {
     align-self: flex-start;
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .summaryTodos {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .summaryTodos p {
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    background-color: var(--input-bg);
+    flex: 1;
+    min-width: 90px;
+  }
+  
+  .summaryTodos p strong {
+    font-size: 1.5rem;
   }
 }

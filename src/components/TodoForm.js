@@ -50,19 +50,23 @@ const TodoForm = (props) => {
   };
   return (
     <div className={classes.upperContainer}>
-      <div className={classes.container}>
-        <form className={classes.form} onSubmit={submitHandler} action="submit">
+      <div className={classes.container} role="main">
+        <form className={classes.form} onSubmit={submitHandler} aria-label="Add new todo">
           <input
             value={todo}
             onChange={todoHandler}
             className={classes.input}
             type="text"
-            placeholder="todo..."
-          ></input>
+            placeholder="What needs to be done?"
+            aria-label="Enter a new todo item"
+            id="todo-input"
+          />
 
           <button
             disabled={!todo}
             className={!todo ? classes.buttonDisabled : classes.button}
+            type="submit"
+            aria-label="Add todo"
           >
             +
           </button>
@@ -76,17 +80,30 @@ const TodoForm = (props) => {
       </div>
       <TodoStatus />
       {showAlert && (
-        <div className={classes.alert}>
+        <div 
+          className={classes.alert} 
+          role="dialog" 
+          aria-modal="true"
+          aria-labelledby="delete-dialog-title"
+        >
           <div className={classes.alertBox}>
-            <p>
-              The item will be deleted permanently. Do you with to continue?
+            <p id="delete-dialog-title">
+              This item will be deleted permanently. Do you want to continue?
             </p>
             <div className={classes.buttonsContainer}>
-              <button className={classes.buttonDelete} onClick={deleteHandler}>
-                DELETE
+              <button 
+                className={classes.buttonDelete} 
+                onClick={deleteHandler}
+                aria-label="Confirm delete"
+              >
+                Delete
               </button>
-              <button className={classes.buttonReturn} onClick={returnHandler}>
-                Return
+              <button 
+                className={classes.buttonReturn} 
+                onClick={returnHandler}
+                aria-label="Cancel and return"
+              >
+                Cancel
               </button>
             </div>
           </div>
