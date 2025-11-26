@@ -59,7 +59,7 @@
 }
 
 .opacity li {
-  background-color: #f0fdf4;
+  background-color: var(--success-bg-light);
   border-color: var(--success-color);
 }
 

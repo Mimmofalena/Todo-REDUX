@@ -87,8 +87,8 @@
 
 .buttonDisabled {
   padding: 0.875rem 1.5rem;
-  background: #d1d5db;
-  color: #9ca3af;
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
   border: none;
   font-size: 1.5rem;
   font-weight: 600;
@@ -198,8 +198,8 @@
 }
 
 .buttonReturn:hover {
-  background-color: #e5e7eb;
-  border-color: #d1d5db;
+  background-color: var(--input-hover);
+  border-color: var(--border-hover);
 }
 
 /* Responsive Design */
